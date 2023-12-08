@@ -28,6 +28,15 @@ int data_to_motor(char inp){
     }
     return out;
 }
+void uartsend(String inp){
+    int l=inp.length();
+    for(int a=0;a<l;a++){
+        if(inp[a]!='\0'){
+            Serial.write((char)inp[a]);
+        }
+    }
+    Serial.write('\n');
+}
 /*if (command == "F") goAhead();
 else if (command == "B") goBack();
 else if (command == "L") goLeft();

@@ -18,6 +18,7 @@ Back light (switch) 78 'N'
 Mode X: 88 'X'
 Mode Y: 89 'Y'
  */
+#include <ArduinoJson.h>
 #include <BluetoothSerial.h> 
 #include "ble.h"
 BluetoothSerial SerialBT; 
@@ -25,6 +26,7 @@ BluetoothSerial SerialBT;
 void setup() {
     Serial.begin(115200);
     SerialBT.begin(BLUETOOTH_NAME); //name the bluetooth and initialize
+    Serial.println("begin!");
 }
 
 void loop() {
@@ -33,6 +35,21 @@ void loop() {
         if(dat>='A'&&dat<='Z'){
             Serial.write(dat);
         }
-        
+    }
+    while(Serial.available()){
+        String json_in="";
+        char t=Serial.read();
+        while(t!='\n'){
+            json_in+=t;
+            t=Serial.read();
+        }
+        SerialBT.println(json_in);
+        /*DynamicJsonDocument values(200);
+        DeserializationError error = deserializeJson(values, json_in);
+        if(!error){
+            double t1=values["tds"];
+            SerialBT.println(int(t1*100));
+            Serial.println(t1);
+        }*/
     }
 }
