@@ -1,0 +1,6 @@
+{
+    "sketch": "main.ino",
+    "configuration": "cpu=16MHzatmega168",
+    "board": "arduino:avr:pro",
+    "port": "COM6"
+}

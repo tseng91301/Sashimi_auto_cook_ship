@@ -1,0 +1,17 @@
+#include "motors.h"
+#include "ir_sensor.h"
+#include "general_conf.h"
+void setup(){
+    Serial.begin(9600);
+    m_init();
+    ir_init();
+}
+void loop(){
+    if(get_ir_val()>close_distance_val){
+        move(0);
+    }else if(get_ir_val()<extreme_close_distance_val){
+        move(1);
+    }else{
+        stop();
+    }
+}

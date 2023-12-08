@@ -1,0 +1,19 @@
+#include "motors.h"
+#include "ir_sensor.h"
+#include "general_conf.h"
+#include "joystick.h"
+void setup(){
+    j_init();
+    Serial.begin(9600);
+    
+}
+void loop(){
+    Serial.print("(");
+    Serial.print(read_x());
+    Serial.print(", ");
+    Serial.print(read_y());
+    Serial.print(", ");
+    Serial.print(read_b());
+    Serial.println(")");
+    delay(200);
+}
