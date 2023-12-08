@@ -1,1 +1,0 @@
-pinMode(LED_BUILTIN, OUTPUT);

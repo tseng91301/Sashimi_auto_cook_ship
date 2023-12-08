@@ -1,6 +1,0 @@
-{
-    "configuration": "cpu=16MHzatmega168",
-    "board": "arduino:avr:pro",
-    "port": "COM3",
-    "sketch": "avr.ino"
-}
