@@ -32,9 +32,11 @@ void setup() {
 void loop() {
     if (SerialBT.available()) {
         char dat=SerialBT.read();
-        if(dat>='A'&&dat<='Z'){
-            Serial.write(dat);
-        }
+        Serial.write(dat);
+        delay(1);
+        // if(dat>='A'&&dat<='Z'){
+        //     Serial.write(dat);
+        // }
     }
     while(Serial.available()){
         String json_in="";
